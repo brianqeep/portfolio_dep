@@ -1,0 +1,21 @@
+<h1 class="head-title gstyle1 text-center">New language learnt</h1>
+<hr>
+<% if @language.errors.any? %>
+  <h3>Oops there were some errors. Please try again:</h3>
+  <ul>
+    <% @language.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="form-new-lang">
+  <%= form_for @language, html: {multipart: true} do |f| %>
+    <%= f.label :Icon %>
+    <%= f.file_field :image %> <br><br>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit  %>
+  <% end %>
+</div>
